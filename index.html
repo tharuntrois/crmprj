@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crime Analysis</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Crime Analysis</h1>
+  <div class="graph-container">
+    <h2>Major Crime Indicator</h2>
+    <img src="{{ url_for('static', filename='graph1.png') }}" alt="Major Crime Indicator">
+  </div>
+  <div class="graph-container">
+    <h2>Yearwise Total Criminal Cases</h2>
+    <img src="{{ url_for('static', filename='graph2.png') }}" alt="Yearwise Total Criminal Cases">
+  </div>
+  <div class="graph-container">
+    <h2>Proportion of Crimes according to Premise Type</h2>
+    <img src="{{ url_for('static', filename='graph3.png') }}" alt="Proportion of Crimes according to Premise Type">
+  </div>
+  <div class="graph-container">
+    <h2>Assault Crimes in Toronto</h2>
+    <img src="{{ url_for('static', filename='graph4.png') }}" alt="Assault Crimes in Toronto">
+  </div>
+  <div class="graph-container">
+    <h2>Crime Types by Hour of Day in Toronto</h2>
+    <img src="{{ url_for('static', filename='graph5.png') }}" alt="Crime Types by Hour of Day in Toronto">
+  </div>
+  <div class="graph-container">
+    <h2>Neighbourhoods with Most Crimes</h2>
+    <img src="{{ url_for('static', filename='graph6.png') }}" alt="Neighbourhoods with Most Crimes">
+  </div>
+  <div class="graph-container">
+    <h2>Major Crime Indicators by Month</h2>
+    <img src="{{ url_for('static', filename='graph7.png') }}" alt="Major Crime Indicators by Month">
+  </div>
+  <div class="graph-container">
+    <h2>Neighbourhoods with Most Crimes in Toronto</h2>
+    <img src="{{ url_for('static', filename='graph8.png') }}" alt="Neighbourhoods with Most Crimes in Toronto">
+  </div>
+</body>
+</html>
