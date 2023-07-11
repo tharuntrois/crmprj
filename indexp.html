@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crime Rate Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylep.css') }}">
+</head>
+<body>
+    <h1>Crime Rate Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post" id="predict-form">
+        <label for="Year">Year:</label>
+        <input type="text" id="Year" name="Year" required><br><br>
+
+        <label for="States">States:</label>
+        <input type="text" id="States" name="States" required><br><br>
+
+        <label for="District">District:</label>
+        <input type="text" id="District" name="District" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction Result:</h2>
+        <p>Crime rate prediction: {{ prediction }}</p>
+        {% if prediction >= 1.0 %}
+            <p>This prediction indicates a high crime rate.</p>
+        {% elif prediction >= 0.5 and prediction <= 1.0 %}
+            <p>This prediction indicates a medium crime rate.</p>
+        {% else %}
+            <p>This prediction indicates a low crime rate.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

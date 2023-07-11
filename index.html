@@ -3,38 +3,157 @@
 <head>
   <title>Crime Analysis</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .hidden {
+      display: none;
+    }
+    
+
+    .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.dt {
+  font-family: "Times New Roman", Times, serif;
+}
+.gt{
+   /* Background pattern from Toptal Subtle Patterns */
+   background-image: url("/static/download.jpeg");
+   height: 90px;
+   width: 15%;
+   text-align: center;
+   position: relative;
+   display: flex;
+   left: 42.4%;
+   
+   margin-bottom: 10px;
+
+   
+}
+
+  </style>
+  <script>
+    function toggleGraphs() {
+      var graphContainers = document.getElementsByClassName('graph-container');
+      for (var i = 0; i < graphContainers.length; i++) {
+        graphContainers[i].classList.toggle('hidden');
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>Crime Analysis</h1>
-  <div class="graph-container">
+  <div padding-bottom:40px>
+  <div class="gt">
+  <h1 class="dt">Crime Analysis</h1>
+</div>
+</div>
+  <!-- Analysis button -->
+  
+    <div class="center">
+    <button class="button-85" id="analysis-button" onclick="toggleGraphs()">Perform Analysis</button>
+    </div>
+  
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="graph-container hidden">
     <h2>Major Crime Indicator</h2>
     <img src="{{ url_for('static', filename='graph1.png') }}" alt="Major Crime Indicator">
   </div>
-  <div class="graph-container">
+  <div class="graph-container hidden">
     <h2>Yearwise Total Criminal Cases</h2>
     <img src="{{ url_for('static', filename='graph2.png') }}" alt="Yearwise Total Criminal Cases">
   </div>
-  <div class="graph-container">
+  <div class="graph-container hidden">
     <h2>Proportion of Crimes according to Premise Type</h2>
     <img src="{{ url_for('static', filename='graph3.png') }}" alt="Proportion of Crimes according to Premise Type">
   </div>
-  <div class="graph-container">
+  <div class="graph-container hidden">
     <h2>Assault Crimes in Toronto</h2>
     <img src="{{ url_for('static', filename='graph4.png') }}" alt="Assault Crimes in Toronto">
   </div>
-  <div class="graph-container">
+  <div class="graph-container hidden">
     <h2>Crime Types by Hour of Day in Toronto</h2>
     <img src="{{ url_for('static', filename='graph5.png') }}" alt="Crime Types by Hour of Day in Toronto">
   </div>
-  <div class="graph-container">
+  <div class="graph-container hidden">
     <h2>Neighbourhoods with Most Crimes</h2>
     <img src="{{ url_for('static', filename='graph6.png') }}" alt="Neighbourhoods with Most Crimes">
   </div>
-  <div class="graph-container">
+  <div class="graph-container hidden">
     <h2>Major Crime Indicators by Month</h2>
     <img src="{{ url_for('static', filename='graph7.png') }}" alt="Major Crime Indicators by Month">
   </div>
-  <div class="graph-container">
+  <div class="graph-container hidden">
     <h2>Neighbourhoods with Most Crimes in Toronto</h2>
     <img src="{{ url_for('static', filename='graph8.png') }}" alt="Neighbourhoods with Most Crimes in Toronto">
   </div>
